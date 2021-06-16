@@ -39,7 +39,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.6</version>
                 <configuration>
-                    <mainClass>no.tobakken.eget.App</mainClass>
+                    <mainClass>no.tobakken.eget.saueliste.App</mainClass>
                 </configuration>
             </plugin>
         </plugins>
