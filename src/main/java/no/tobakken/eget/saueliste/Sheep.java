@@ -1,13 +1,14 @@
 package no.tobakken.eget.saueliste;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Sheep {
     private String number;
-    private ArrayList<String> lambs;
+    private String lambs;
     private String comment;
     private boolean alive;
-    private ArrayList<String> weight;
+    private String weight;
     private int mother;
     private int father;
 
@@ -21,7 +22,7 @@ public class Sheep {
         return number;
     }
 
-    public ArrayList<String> getLambs() {
+    public String getLambs() {
         return lambs;
     }
 
@@ -33,7 +34,7 @@ public class Sheep {
         return alive;
     }
 
-    public ArrayList<String> getWeight() {
+    public String getWeight() {
         return weight;
     }
 
@@ -49,7 +50,7 @@ public class Sheep {
         this.number = number;
     }
 
-    public void setLambs(ArrayList<String> lambs) {
+    public void setLambs(String lambs) {
         this.lambs = lambs;
     }
 
@@ -61,7 +62,7 @@ public class Sheep {
         this.alive = alive;
     }
 
-    public void setWeight(ArrayList<String> weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
@@ -77,5 +78,13 @@ public class Sheep {
         return number + ";" +
                 alive + ";" +
                 comment;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sheep sheep = (Sheep) o;
+        return sheep.number.equalsIgnoreCase(number);
     }
 }

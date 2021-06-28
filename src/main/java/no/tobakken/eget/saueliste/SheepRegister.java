@@ -32,6 +32,15 @@ public class SheepRegister {
         DAO.fillRegisterFromCSV(this);
     }
 
+    public Sheep searchNumber(String number){
+        for (Sheep s: REGISTER){
+            if (s.getNumber().equalsIgnoreCase(number)){
+                return s;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         String msg = "";
