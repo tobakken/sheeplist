@@ -19,7 +19,6 @@ public class SheepDAO {
             while ((line = br.readLine()) != null){
                 String[] sheep = line.split(DELIMITER);
                 reg.addSheep(sheep[0], sheep[1].equals("true"), sheep[2]);
-                System.out.println(reg.toString());
             }
         } catch (IOException e){
             e.printStackTrace();

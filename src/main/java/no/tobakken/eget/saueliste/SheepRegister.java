@@ -13,7 +13,7 @@ public class SheepRegister {
     public SheepRegister(){
         this.REGISTER = new ArrayList<>();
         this.DAO = new SheepDAO();
-        fillRegister();
+        fillRegisterWithTestData();
     }
 
     public void addSheep(String number, boolean alive, String comment){
@@ -30,6 +30,11 @@ public class SheepRegister {
 
     public void fillRegister(){
         DAO.fillRegisterFromCSV(this);
+    }
+
+    public void fillRegisterWithTestData(){
+        addSheep("80184", false, "Lull");
+        addSheep("20151", true, "Funne ved Toppen");
     }
 
     @Override
