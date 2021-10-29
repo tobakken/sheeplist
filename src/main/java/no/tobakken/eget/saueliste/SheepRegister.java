@@ -4,6 +4,7 @@ import no.tobakken.eget.saueliste.dao.SheepDAO;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class SheepRegister {
     private final ArrayList<Sheep> REGISTER;
@@ -22,6 +23,10 @@ public class SheepRegister {
 
     public ArrayList<Sheep> getREGISTER() {
         return REGISTER;
+    }
+
+    public Sheep findSheep(String id){
+        return getREGISTER().stream().filter(e -> e.getNumber().equals(id)).collect(Collectors.toList()).get(0);
     }
 
     public File getSaveLocation() {

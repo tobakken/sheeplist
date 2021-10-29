@@ -6,11 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import no.tobakken.eget.saueliste.App;
 import no.tobakken.eget.saueliste.Sheep;
 import no.tobakken.eget.saueliste.SheepRegister;
+import no.tobakken.eget.saueliste.singleton.SheepHolder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +20,7 @@ import java.util.ResourceBundle;
 
 public class HomepageController implements Initializable {
     private SheepRegister register;
+    private final SheepHolder holder = SheepHolder.getInstance();
 
     @FXML private Button addBtn;
 
@@ -32,6 +35,13 @@ public class HomepageController implements Initializable {
         comment.setCellValueFactory(new PropertyValueFactory<>("comment"));
 
         tableView.getItems().setAll(fillTableView());
+        tableView.setRowFactory(tv -> {
+            TableRow<Sheep> row = new TableRow<>();
+            row.setOnMouseClicked(e -> {
+                if (e.getClickCount() == 2 && (!row.isEmpty())) showSheep(row.getItem().getNumber());
+            });
+            return row;
+        });
     }
 
     private ObservableList<Sheep> fillTableView(){
@@ -41,6 +51,15 @@ public class HomepageController implements Initializable {
     public void setAddBtn(){
         try {
             App.setRoot("addSheepPage");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showSheep(String id){
+        holder.setSheep(register.findSheep(id));
+        try {
+            App.setRoot("showSheep");
         } catch (IOException e) {
             e.printStackTrace();
         }
