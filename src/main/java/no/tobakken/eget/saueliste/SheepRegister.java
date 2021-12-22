@@ -4,6 +4,7 @@ import no.tobakken.eget.saueliste.dao.SheepDAO;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class SheepRegister {
     private final ArrayList<Sheep> REGISTER;
@@ -13,7 +14,7 @@ public class SheepRegister {
     public SheepRegister(){
         this.REGISTER = new ArrayList<>();
         this.DAO = new SheepDAO();
-        fillRegister();
+        fillRegisterWithTestData();
     }
 
     public void addSheep(String number, boolean alive, String comment){
@@ -24,6 +25,10 @@ public class SheepRegister {
         return REGISTER;
     }
 
+    public Sheep findSheep(String id){
+        return getREGISTER().stream().filter(e -> e.getNumber().equals(id)).collect(Collectors.toList()).get(0);
+    }
+
     public File getSaveLocation() {
         return saveLocation;
     }
@@ -32,13 +37,9 @@ public class SheepRegister {
         DAO.fillRegisterFromCSV(this);
     }
 
-    public Sheep searchNumber(String number){
-        for (Sheep s: REGISTER){
-            if (s.getNumber().equalsIgnoreCase(number)){
-                return s;
-            }
-        }
-        return null;
+    public void fillRegisterWithTestData(){
+        addSheep("80184", false, "Lull");
+        addSheep("20151", true, "Funne ved Toppen");
     }
 
     @Override

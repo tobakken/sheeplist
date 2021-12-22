@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.tobakken.eget.saueliste.controller.AddSheepPageController">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Lam" />
+            <TextField />
+            <Button mnemonicParsing="false" text="Legg til" />
+         </children></VBox>
+   </center>
+   <left>
+      <VBox prefHeight="300.0" prefWidth="253.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="numberField" promptText="Nr" />
+            <TextArea fx:id="commentField" prefHeight="200.0" prefWidth="200.0" promptText="Kommentar" />
+            <Label text="Vekt" />
+            <TextField />
+            <Button mnemonicParsing="false" text="Legg til fleire" />
+         </children></VBox>
+   </left>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#savePressed" text="Lagre" />
+            <Button fx:id="homepageBtn" mnemonicParsing="false" onAction="#setHomepageBtn" text="Tilbake" />
+         </children>
+      </HBox>
+   </bottom>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Far:" />
+            <TextField fx:id="fatherField" />
+            <Label text="Mor:" />
+            <TextField fx:id="motherField" />
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
