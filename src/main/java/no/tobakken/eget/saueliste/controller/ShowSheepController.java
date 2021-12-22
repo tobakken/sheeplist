@@ -4,9 +4,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import no.tobakken.eget.saueliste.App;
 import no.tobakken.eget.saueliste.Sheep;
+//import no.tobakken.eget.saueliste.SheepKotlin;
 import no.tobakken.eget.saueliste.singleton.SheepHolder;
 
 import java.io.IOException;
@@ -18,7 +20,7 @@ public class ShowSheepController implements Initializable{
     @FXML
     Label numberField;
     @FXML
-    TextField commentField;
+    TextArea commentField;
     @FXML
     Button homeBtn;
 

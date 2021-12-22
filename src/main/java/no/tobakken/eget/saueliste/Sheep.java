@@ -1,8 +1,5 @@
 package no.tobakken.eget.saueliste;
 
-import java.util.ArrayList;
-import java.util.Objects;
-
 public class Sheep {
     private String number;
     private String lambs;

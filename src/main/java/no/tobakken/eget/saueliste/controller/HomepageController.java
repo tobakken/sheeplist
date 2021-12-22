@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import no.tobakken.eget.saueliste.App;
 import no.tobakken.eget.saueliste.Sheep;
+//import no.tobakken.eget.saueliste.SheepKotlin;
 import no.tobakken.eget.saueliste.SheepRegister;
 import no.tobakken.eget.saueliste.singleton.SheepHolder;
 
